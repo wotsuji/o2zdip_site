@@ -101,14 +101,73 @@
       </div>
     </nav>
     <main role="main" class="container-fluid pt-1">
-      <div><a href="./../../index.html">HOME</a> &gt; PHP</div>
+      <div><a href="./../../index.html">HOME</a> &gt; <a href="./base.html">PHP</a> &gt; Laravel artisan コマンドメモ</div>
       <div>
-        <h1 class="pt-1">PHP</h1>
+        <h1 class="pt-1">Laravel artisan コマンドメモ</h1>
         <p class="lead"></p>
         <p>
-        <h5>■ページ一覧</h5>
-        <h6>□Laravel</h6>
-        <a href="20230919_laravel_artisan_cmd.html">Laravel artisan コマンドメモ</a><br>
+<br>
+・php.iniの設定を確認する<br>
+# php -r "phpinfo();" | grep php.ini<br>
+# cat /usr/local/etc/php/php.ini | grep opache<br>
+<br>
+・artisan コマンド 共通<br>
+　-hを付けるとヘルプ説明<br>
+<br>
+・Laravelのバージョン確認<br>
+php artisan -v<br>
+<br>
+・コマンドの一覧を表示する<br>
+# php artisan list<br>
+<br>
+・設定しているルートの一覧<br>
+php artisan route:list<br>
+<br>
+□ データベース関連<br>
+・モデルの雛形を作成する<br>
+# php artisan make:model Admin<br>
+<br>
+・マイグレーションを作成する<br>
+★Todo：コマンド確認<br>
+# php artisan make:migration table_name<br>
+<br>
+・マイグレーションの実行<br>
+# php artisan migrate<br>
+<br>
+・マイグレーションの再実行（rollbackもある）<br>
+★Todo：コマンド確認<br>
+# php artisan reset<br>
+# php artisan migrate:refresh<br>
+<br>
+・Seederの実行<br>
+# php artisan db:seed<br>
+<br>
+------------------------<br>
+・コントローラー作成<br>
+# php artisan make:controller HogeController<br>
+<br>
+・最適化（コントローラーを手動でリネームした時など）<br>
+# php artisan optimize<br>
+<br>
+対話コンソール<br>
+# php artisan tinker<br>
+<br>
+<br>
+------------------------<br>
+◆テスト<br>
+・テストの作成<br>
+php artisan make:test UserTest<br>
+※tests/Featureに作られる<br>
+<br>
+・テストの実行<br>
+./vendor/bin/phpunit<br>
+php artisan test<br>
+<br>
+・テストの並列実行<br>
+php artisan test --parallel<br>
+・プロセス数を制定<br>
+php artisan test --parallel --processes=4<br>
+<br>
         </p>
       </div>
     </main>
