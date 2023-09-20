@@ -117,58 +117,88 @@ cat /usr/local/etc/php/php.ini | grep opache<br>
 　-hを付けるとヘルプ説明<br>
 <br>
 ・Laravelのバージョン確認<br>
+<div class="bg-dark text-light py-1 ps-3">
 php artisan -v<br>
+</div>
 <br>
 ・コマンドの一覧を表示する<br>
-# php artisan list<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan list<br>
+</div>
 <br>
 ・設定しているルートの一覧<br>
+<div class="bg-dark text-light py-1 ps-3">
 php artisan route:list<br>
+</div>
 <br>
 □ データベース関連<br>
 ・モデルの雛形を作成する<br>
-# php artisan make:model Admin<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan make:model Admin<br>
+</div>
 <br>
 ・マイグレーションを作成する<br>
 ★Todo：コマンド確認<br>
-# php artisan make:migration table_name<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan make:migration table_name<br>
+</div>
 <br>
 ・マイグレーションの実行<br>
-# php artisan migrate<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan migrate<br>
+</div>
 <br>
 ・マイグレーションの再実行（rollbackもある）<br>
 ★Todo：コマンド確認<br>
-# php artisan reset<br>
-# php artisan migrate:refresh<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan reset<br>
+php artisan migrate:refresh<br>
+</div>
 <br>
 ・Seederの実行<br>
-# php artisan db:seed<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan db:seed<br>
+</div>
 <br>
 ------------------------<br>
 ・コントローラー作成<br>
-# php artisan make:controller HogeController<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan make:controller HogeController<br>
+</div>
 <br>
 ・最適化（コントローラーを手動でリネームした時など）<br>
-# php artisan optimize<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan optimize<br>
+</div>
 <br>
 対話コンソール<br>
-# php artisan tinker<br>
+<div class="bg-dark text-light py-1 ps-3">
+php artisan tinker<br>
+</div>
 <br>
 <br>
 ------------------------<br>
 ◆テスト<br>
 ・テストの作成<br>
+<div class="bg-dark text-light py-1 ps-3">
 php artisan make:test UserTest<br>
+</div>
 ※tests/Featureに作られる<br>
 <br>
 ・テストの実行<br>
+<div class="bg-dark text-light py-1 ps-3">
 ./vendor/bin/phpunit<br>
 php artisan test<br>
+</div>
 <br>
 ・テストの並列実行<br>
+<div class="bg-dark text-light py-1 ps-3">
 php artisan test --parallel<br>
+</div>
 ・プロセス数を制定<br>
+<div class="bg-dark text-light py-1 ps-3">
 php artisan test --parallel --processes=4<br>
+</div>
 <br>
         </p>
       </div>
