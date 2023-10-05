@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// コントーラ
+use App\Http\Controllers\HtmlMkController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/html_mk/', [HtmlMkController::class, 'index']);
