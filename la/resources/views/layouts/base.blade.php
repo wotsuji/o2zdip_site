@@ -22,7 +22,7 @@
   <meta name="twitter:site" content="">
 
   <!-- ファビコン -->
-  <link rel="icon" href="./favicon.ico">
+  <link rel="icon" href="/la/public/favicon.ico">
 
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
