@@ -134,13 +134,18 @@
           ・ブログ記事もコンテンツの一部として存在します。こちらは個人的な意見・感想です。所属する組織・チームとは関係ありません。<br>
         </p>
         <p>
-        <h5>■構成</h5>
+        <h5>■技術構成</h5>
         Bootstrap：5.3.0<br>
         JQuery：予定<br>
         PHP：8.2（フレームワーク Laravel10.x）<br>
         Mysql：5.7/8.0.34<br>
         Google タグマネージャー<br>
-        Google アナリティクス<br>
+        Google アナリティクス（GA4）<br>
+        <br>
+        PHP+Laravel+Mysql=>HTML生成（内部環境） → HTMLアップロード（本番環境）<br>
+        予定：データベース更新時 自動HTML生成<br>
+        予定：自動デプロイ（CD）※Github<br>
+        予定：自動テスト（CI）<br>
         </p>
         <p>
         <h5>■自己紹介</h5>
