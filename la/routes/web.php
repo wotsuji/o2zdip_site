@@ -15,9 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 // コントーラ
 use App\Http\Controllers\HtmlMkController;
+use App\Http\Controllers\HtmlPageEditController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/html_mk/', [HtmlMkController::class, 'index']);
+
+Route::get('/html_edit_index/', [HtmlPageEditController::class, 'index']);
+
+Route::get('/html_edit_editor/', [HtmlPageEditController::class, 'edit']);
+
+Route::post('/html_edit_update_exec/', [HtmlPageEditController::class, 'update_exec']);

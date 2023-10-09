@@ -1,5 +1,5 @@
 
 @extends('layouts.base')
 @section('contents')
-<p>{{ $hello }}</p>
+{!! $contents !!}
 @endsection
