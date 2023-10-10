@@ -35,8 +35,8 @@
 
 <body>
   <h1>ページ一覧</h1>
-  <div style="width: 960px;text-align: right;">
-    <a href="/la/public/html_edit_create_exec/">HTML生成</a>
+  <div style="width: 960px;text-align: right; margin-bottom: 12px;">
+    <a href="/la/public/html_edit_create_exec/">HTML生成（実行に時間かかる）</a>
   </div>
   <table class="table table-primary table-striped table-hover" style="width: 960px;">
     <thead>
