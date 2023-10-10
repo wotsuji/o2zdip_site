@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // コントーラ
 use App\Http\Controllers\HtmlMkController;
 use App\Http\Controllers\HtmlPageEditController;
+use App\Http\Controllers\HtmlPageCreateController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +29,5 @@ Route::get('/html_edit_index/', [HtmlPageEditController::class, 'index']);
 Route::get('/html_edit_editor/', [HtmlPageEditController::class, 'edit']);
 
 Route::post('/html_edit_update_exec/', [HtmlPageEditController::class, 'update_exec']);
+
+Route::get('/html_edit_create_exec/', [HtmlPageCreateController::class, 'create_html_files']);
