@@ -128,7 +128,7 @@
     </main>
   </div>
   <footer>
-    <p class="small text-center">Copyright &copy; 2023 otsuji</p>
+    <p class="small text-center">Copyright &copy; 2023 otsuji.wataru</p>
   </footer>
 
   <!-- JavaScript  -->
