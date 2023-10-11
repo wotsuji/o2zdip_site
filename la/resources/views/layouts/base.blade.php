@@ -118,6 +118,7 @@
           <li class="nav-item"><a href="{{$public_path}}/page/blog/base.html" class="nav-link link-light">ブログ記事</a></li>
           <li class="nav-item"><a href="{{$public_path}}/page/app/base.html" class="nav-link link-light">アプリ</a></li>
           <li class="nav-item"><a href="{{$public_path}}/page/link/base.html" class="nav-link link-light">リンク集</a></li>
+          <li class="nav-item"><a href="https://twitter.com/w_o2z" class="nav-link link-light" target="_blank">X(Twitter)</a></li>
           <li class="nav-item"><a href="https://zenn.dev/o2z" class="nav-link link-light" target="_blank">Zenn</a></li>
           <li class="nav-item"><a href="https://github.com/wotsuji" class="nav-link link-light" target="_blank">github</a></li>
         </ul>
