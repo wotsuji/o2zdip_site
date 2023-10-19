@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="ja">
-  <title>PHPサブページ</title>
+  <title>FizzBuzzを書いてみる</title>
   <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
   <meta name="author" content="otsuji">
   <!-- ビューポート -->
@@ -128,17 +128,114 @@
       </div>
     </nav>
     <main role="main" class="container-fluid pt-1">
-      <div><a href="./../../index.html">HOME</a> &gt; PHP</div>
+      <div><a href="./../../index.html">HOME</a> &gt; <a href="./base.html">PHP</a> &gt; FizzBuzzを書いてみる</div>
 <div>
-<h1 class="pt-1">PHP</h1>
-<p class="lead"></p>
+<h1 class="pt-1">FizzBuzzを書いてみる</h1>
+<p class="lead">
+FizzBuzzって再帰処理で実装したり、DI注入（依存性の注入）など、設計のベストプラクティスみたいなモノはあったりするのですが<br>
+運用保守開発的な実務していて、こう書いてあったら修正しやすいのになって感じの私なりのFizzBuzzにしてます。<br>
+再帰やDI注入はコードをよく読んで理解していく必要があって新規の時はいいのですが<br>
+小規模な修正をその場その場で繰り返している運用開発だと、やってる身としてはイチイチ仕様調査しないといけないのでツライ。<br>
+という及び腰な感じになっています。
+</p>
 <p>
-<h5>■ページ一覧</h5>
-<a href="20230919_laravel_artisan_cmd.html">Laravel artisan コマンドメモ（2023/09/10）</a><br>
-Laravel artisan コマンド よく使うコマンドをメモしました。<br>
+<h5><b>◆実装コード</b></h5>
+<div>インデントが潰れちゃってるので全容は後述のGitHubのコードを参照してください。<div>
+<div class="bg-dark text-light py-1 ps-3">
+<?php<br>
 <br>
-<a href="20231019_FizzBuzz.html">FizzBuzzを書いてみる（2023/10/19）</a><br>
-FizzBuzzは力量が出るということで私なりのFizzBuzzを書いてみました。<br>
+// FizzBuzz<br>
+// 実行方法： php -f fizzbuzz.php<br>
+<br>
+// FizzBuzzターゲット配列<br>
+$TARGET_ARRAY = [<br>
+    [3, "Fizz"],<br>
+    [5, "Buzz"]<br>
+];<br>
+// HIT無しの時の出力テキスト<br>
+$SKIP_TEXT = "-";<br>
+// 1～Limit<br>
+$LIMIT = 100;<br>
+<br>
+$fizzbuzz = new FizzBuzz();<br>
+$output_text = $fizzbuzz->fizzBuzzExec($TARGET_ARRAY, $SKIP_TEXT, $LIMIT);<br>
+echo $output_text;<br>
+<br>
+class FizzBuzz<br>
+{<br>
+<br>
+    public function fizzBuzzExec($target_array, $skip_text, $limit)<br>
+    {<br>
+        $output_text = "";<br>
+        for ($i = 1; $i <= $limit; $i++) {<br>
+            $output_line = $this->fizzBuzzOutputLine($target_array, $skip_text, $i);<br>
+            $output_text .= $i . ":" . $output_line . "\n";<br>
+        }<br>
+        return $output_text;<br>
+    }<br>
+<br>
+    private function fizzBuzzOutputLine($target_array, $skip_text, $check_int)<br>
+    {<br>
+        $output_line = "";<br>
+        foreach ($target_array as $vals) {<br>
+            if ($check_int % $vals[0] == 0) {<br>
+                $output_line .= $vals[1];<br>
+            }<br>
+        }<br>
+        if ($output_line == "") {<br>
+            $output_line = $skip_text;<br>
+        }<br>
+        return $output_line;<br>
+    }<br>
+}<br>
+</div>
+<br>
+<h5><b>◆ちょっとだけ解説...</b></h5>
+<div class="bg-dark text-light py-1 ps-3">
+// FizzBuzzターゲット配列<br>
+$TARGET_ARRAY = [<br>
+    [3, "Fizz"],<br>
+    [5, "Buzz"]<br>
+];<br>
+</div>
+<div>
+なるべく設定を外に出して実行するクラスに渡すようにしています。<br>
+今回、配列で「3だとFizz」「5だとBuzz」をセットにしてforeachで回す形を取ってます。<br>
+この形にしておくと追加や変更があった時の修正箇所が見やすい。<br>
+</div>
+<br>
+<div class="bg-dark text-light py-1 ps-3">
+// HIT無しの時の出力テキスト<br>
+$SKIP_TEXT = "-";<br>
+</div>
+<div>
+これは引数で渡すべきなのか迷うところ。クラス側で固定で持つのも良いかもしれないです。<br>
+あくまで主観ですが「ここは変えたい」と言われる予感があり実行側から変更できるようにしました。<br>
+運用の仕様変更でよくあるのは「全体の出力は仕様となっている」という旨を理解いただける事が多いのですが<br>
+軽微な部分の変更はコード修正して力技で実装をしないといけない事が多いです。<br>
+※フラグを追加で渡してクラス側の条件分岐が増えて双方向に依存が強まる・・・というのが私の経験上は実装が多いです。<br>
+</div>
+<br>
+<h5><b>◆まとめ</b></h5>
+<div>
+本当はPSRとかSolid原則やクリーンアーキテクチャに理解があって、組織として学んでいるのが理想と思いますが<br>
+PHP勉強会とかカンファレンスに参加する人が居る組織って、私の知ってる範囲では完全な少数派です。<br>
+再帰などで難しく書き過ぎず、かといってクラス側に依存し過ぎずのバランスに気を使う事が大事と思ってます。<br>
+運用に入って会った事の無い人（スキルに差がある人）が担当しても、そこまでストレスにならないコードの程度かと思います。<br>
+※あくまで個人の主観です。<br>
+</div>
+<br>
+<h5><b>◆GitHubにコードをあげてます。</b></h5>
+<div>
+<a href="https://github.com/wotsuji/php_fizz_buzz" target="_blank">https://github.com/wotsuji/php_fizz_buzz</a><br>
+・実行方法
+</div>
+<div class="bg-dark text-light py-1 ps-3">
+php -f fizzbuzz.php
+</div>
+<br>
+<br>
+記事は以上です。FizzBuzzも改めて設計を考えると奥深いです。<br>
 <br>
 </p>
 </div>
