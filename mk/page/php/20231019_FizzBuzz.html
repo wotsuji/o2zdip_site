@@ -143,7 +143,6 @@ FizzBuzzって再帰処理で実装したり、DI注入（依存性の注入）�
 <div>インデントが潰れちゃってるので全容は後述のGitHubのコードを参照してください。<div>
 <div class="bg-dark text-light py-1 ps-3">
 <?php<br>
-<br>
 // FizzBuzz<br>
 // 実行方法： php -f fizzbuzz.php<br>
 <br>
@@ -176,14 +175,20 @@ class FizzBuzz<br>
 <br>
     private function fizzBuzzOutputLine($target_array, $skip_text, $check_int)<br>
     {<br>
+        $output_line = $this->fizzBuzzOutputLineVals($target_array, $check_int);<br>
+        if ($output_line == "") {<br>
+            $output_line = $skip_text;<br>
+        }<br>
+        return $output_line;<br>
+    }<br>
+    <br>
+    private function fizzBuzzOutputLineVals($target_array, $check_int)<br>
+    {<br>
         $output_line = "";<br>
         foreach ($target_array as $vals) {<br>
             if ($check_int % $vals[0] == 0) {<br>
                 $output_line .= $vals[1];<br>
             }<br>
-        }<br>
-        if ($output_line == "") {<br>
-            $output_line = $skip_text;<br>
         }<br>
         return $output_line;<br>
     }<br>
