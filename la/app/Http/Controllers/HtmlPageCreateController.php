@@ -12,7 +12,7 @@ class HtmlPageCreateController extends Controller
     //
     function create_html_files(Request $request){
 
-        // ページ一覧 取得
+        // ページ一覧 取得 → 外部ページはHTMLファイルを生成しない
         $records = HtmlPageDetail::where("enabled", 1)->orderBy('order', 'asc')->get();
 
         // ページ生成
