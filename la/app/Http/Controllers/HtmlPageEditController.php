@@ -54,6 +54,8 @@ class HtmlPageEditController extends Controller
         $HtmlPageDetail->page_path = $request->page_path;
         $HtmlPageDetail->order = $request->order;
         $HtmlPageDetail->enabled = $request->enabled;
+        $HtmlPageDetail->is_update_hisotry = $request->is_update_hisotry;
+        $HtmlPageDetail->is_export_html = $request->is_export_html;
         $HtmlPageDetail->contents = $request->contents;
         $HtmlPageDetail->save();
 //        return redirect()->route('html_edit_editor', ['page_id' => $HtmlPageDetail->page_id]); 

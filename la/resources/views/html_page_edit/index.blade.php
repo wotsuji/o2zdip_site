@@ -38,7 +38,7 @@
   <div style="width: 960px;text-align: right; margin-bottom: 12px;">
     <a href="/la/public/html_edit_create_exec/">HTML生成（実行に時間かかる）</a>
   </div>
-  <table class="table table-primary table-striped table-hover" style="width: 960px;">
+  <table class="table table-primary table-striped table-hover" style="width: 1200px;">
     <thead>
       <tr>
         <th>id</th>
@@ -46,6 +46,8 @@
         <th>order</th>
         <th>enabled</th>
         <th>updated_at</th>
+        <th>is_update_hisotry</th>
+        <th>is_export_html</th>
         <th>編集</th>
       </tr>
     </thead>
@@ -70,6 +72,12 @@
           {{$record->updated_at}}
         </td>
         <td>
+          {{$record->is_update_hisotry}}
+        </td>
+        <td>
+          {{$record->is_export_html}}
+        </td>
+        <td>
           <a href="/la/public/html_edit_editor/?page_id={{$record->id}}" target="_blank">
             編集
           </a>
@@ -77,6 +85,10 @@
       </tr>
       @endforeach
       <tr>
+        <td>
+        </td>
+        <td>
+        </td>
         <td>
         </td>
         <td>

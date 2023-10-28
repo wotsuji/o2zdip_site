@@ -32,6 +32,7 @@ class HtmlMkController extends Controller
         // TODO：トップページ/サブぺージを更新履歴の表示対象からはずしたい。そうすると外部サイトで更新した時の履歴が飛ぶのでなんとかできないか。。。
         $update_records = HtmlPageDetail::where([
             ["enabled", "=", 1],
+            ["is_update_hisotry", "=", 1],
         ])->orderBy('updated_at', 'desc')->limit(10)->get();
         $update_log_html = '';
         foreach ($update_records as $update_record) {

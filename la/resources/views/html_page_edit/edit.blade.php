@@ -67,12 +67,24 @@
         <tr>
           <th>enabled</th>
           <td>
-            <input type="text" name="enabled" size="10" value="{{$record->enabled}}"></input>
+            <input type="text" name="enabled" size="10" value="{{$record->enabled}}"></input>1
           </td>
         </tr>
         <tr>
           <th>updated_at</th>
           <td>{{$record->updated_at}}</td>
+        </tr>
+        <tr>
+          <th>is_update_hisotry</th>
+          <td>
+            <input type="text" name="is_update_hisotry" size="10" value="{{$record->is_update_hisotry}}"></input>1
+          </td>
+        </tr>
+        <tr>
+          <th>is_export_html</th>
+          <td>
+            <input type="text" name="is_export_html" size="10" value="{{$record->is_export_html}}"></input>1
+          </td>
         </tr>
       </table>
       <div style="text-align: right;width: 990px; margin-bottom: 10px;">
