@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\HtmlPageDetail;
+use App\Models\Categories;
 
 class HtmlMkController extends Controller
 {
@@ -30,16 +31,23 @@ class HtmlMkController extends Controller
         // 更新履歴 置換
         // TODO：べた書きしてるのでクラスなりライブラリ化が必要。CURLされると全ページで実行されるのもなんとかできないか。
         // TODO：トップページ/サブぺージを更新履歴の表示対象からはずしたい。そうすると外部サイトで更新した時の履歴が飛ぶのでなんとかできないか。。。
+        $category_records = Categories::orderBy('id', 'asc')->get();
+        $category_list = array("0"=>"トップページ");
+        foreach ($category_records as $category) {
+            $category_list[$category->id] = $category->category_name;
+        }
         $update_records = HtmlPageDetail::where([
             ["enabled", "=", 1],
             ["is_update_hisotry", "=", 1],
         ])->orderBy('updated_at', 'desc')->limit(10)->get();
         $update_log_html = '';
         foreach ($update_records as $update_record) {
-            $update_log_html .= $update_record['updated_at']->format('Y年m月d日') . "　<a href='" . $update_record['page_path'] . "' target='_blank'>" . $update_record['page_title'] . "</a><br>\n";
+            $update_log_html .= $update_record['updated_at']->format('Y年m月d日') . "　【" ;
+            $update_log_html .= $category_list[$update_record->category_id] . "】 <a href='" . $update_record['page_path'] . "' target='_blank'>" . $update_record['page_title'] . "</a><br>\n";
         }
         $contents = preg_replace('[%update_log_last_ten%]', $update_log_html, $contents);
 
-        return view('html_mk_index', compact('contents', 'public_path', 'page_title', 'page_path', 'side_menu_mk_link_path'));
+
+        return view('html_mk_index', compact('contents', 'public_path', 'page_title', 'page_path', 'side_menu_mk_link_path', 'category_records'));
     }
 }

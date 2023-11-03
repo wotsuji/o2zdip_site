@@ -43,6 +43,7 @@
       <tr>
         <th>id</th>
         <th>page_title</th>
+        <th>category</th>
         <th>order</th>
         <th>enabled</th>
         <th>updated_at</th>
@@ -61,6 +62,12 @@
           <a href="/la/public/html_mk/?page_id={{$record->id}}&is_production=0" target="_blank">
             {{$record->page_title}}
           </a>
+        </td>
+        <td>
+        {{$record->category_id}}：
+        @foreach ($category_records as $category)
+            @if($record->category_id  == $category->id) {{$category->category_name}} @endif
+        @endforeach
         </td>
         <td>
           {{$record->order}}

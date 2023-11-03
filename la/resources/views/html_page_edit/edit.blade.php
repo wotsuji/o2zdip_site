@@ -53,6 +53,19 @@
           </td>
         </tr>
         <tr>
+          <th style="width: 150px;">category_id</th>
+          <td>
+            <label for="category-id">
+              <select class="form-select" id="category_id" name="category_id">
+                <option value="0">0</option>
+                @foreach ($category_records as $category)
+                <option value="{{ $category->id }}" @if($record->category_id==$category->id) selected @endif>{{$category->id}}：{{ $category->category_name }}</option>
+                @endforeach
+              </select>
+            </label>
+          </td>
+        </tr>
+        <tr>
           <th>page_path</th>
           <td>
             <input type="text" name="page_path" size="50" value="{{$record->page_path}}"></input>

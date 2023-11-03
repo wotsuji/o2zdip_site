@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\HtmlPageDetail;
+use App\Models\Categories;
 
 //
 class HtmlPageEditController extends Controller
@@ -14,7 +15,8 @@ class HtmlPageEditController extends Controller
     public function index(Request $request)
     {
         $records = HtmlPageDetail::orderBy('order', 'asc')->get();
-        return view('html_page_edit/index', compact('records'));
+        $category_records = Categories::orderBy('id', 'asc')->get();
+        return view('html_page_edit/index', compact('records','category_records'));
     }
 
     //
@@ -28,7 +30,8 @@ class HtmlPageEditController extends Controller
             $record = new HtmlPageDetail;
             $record->id = "0";
         }
-        return view('html_page_edit/edit', compact('record'));
+        $category_records = Categories::orderBy('id', 'asc')->get();
+        return view('html_page_edit/edit', compact('record','category_records'));
     }
 
     //
@@ -36,7 +39,7 @@ class HtmlPageEditController extends Controller
     {
         // 入力チェック
         $validator = Validator::make($request->all(), [
-            'page_id' => 'integer', 'page_title' => 'string', 'page_path' => 'string', 'order' => 'integer', 'enabled' => 'integer', 'contents' => 'string'
+            'page_id' => 'integer', 'page_title' => 'string', 'category_id' => 'integer','page_path' => 'string', 'order' => 'integer', 'enabled' => 'integer', 'contents' => 'string'
         ]);
         if ($validator->fails()) {
             dd($validator);
@@ -51,6 +54,7 @@ class HtmlPageEditController extends Controller
             $HtmlPageDetail->side_menu_mk_link_path  = "/mk/page";
         }
         $HtmlPageDetail->page_title = $request->page_title;
+        $HtmlPageDetail->category_id = $request->category_id;
         $HtmlPageDetail->page_path = $request->page_path;
         $HtmlPageDetail->order = $request->order;
         $HtmlPageDetail->enabled = $request->enabled;
