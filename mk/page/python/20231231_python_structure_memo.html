@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="ja">
-  <title>トップページ - o2zdip</title>
+  <title>Python構文メモ（2023/12/31）</title>
   <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
   <meta name="author" content="otsuji">
   <!-- ビューポート -->
@@ -128,85 +128,167 @@
       </div>
     </nav>
     <main role="main" class="container-fluid pt-1">
-      <div><a href="#">HOME</a> &gt; トップページ</div>
-<div>
-<h1 class="pt-1">トップページ</h1>
+      <div><a href="./../../index.html">HOME</a> &gt; Python</div>
 
-<h5>■更新履歴<span style="font-size: 0.75em;"> ※直近 10件</span></h5>
+<h1>Python構文メモ</h1>
 <p>
-2023年12月31日　【Python】 <a href='/mk/page/python/20231231_python_structure_memo.html' target='_blank'>Python構文メモ（2023/12/31）</a><br>
-2023年12月31日　【PHP】 <a href='/mk/page/php/20230919_laravel_artisan_cmd.html' target='_blank'>Laravel artisan コマンドメモ</a><br>
-2023年11月17日　【インフラ】 <a href='https://note.com/w_o2z/n/na57667c0257e' target='_blank'>AWSネットワーク入門 第2版|クラウドインフラとネットワーク入門（勉強メモ：2023/11/15）</a><br>
-2023年11月17日　【設計】 <a href='https://note.com/w_o2z/n/n98de4646b0be' target='_blank'>良いコード 悪いコードで学ぶ 設計入門（書籍：勉強メモ ：2023/10/27）</a><br>
-2023年11月17日　【設計】 <a href='https://note.com/w_o2z/n/nfd4cf2929463' target='_blank'>リーダブルコード（書籍：勉強メモ ：2023/10/22 note）</a><br>
-2023年11月17日　【設計】 <a href='https://note.com/w_o2z/n/na90f5a838711' target='_blank'>ITエンジニアのための企画力と企画書の勉強メモ：2023年10月8日 note）</a><br>
-2023年10月20日　【PHP】 <a href='/mk/page/php/20231019_FizzBuzz.html' target='_blank'>FizzBuzzを書いてみる</a><br>
-2023年10月10日　【アプリ】 <a href='/mk/page/app/20231001_windows10_camera_app.html' target='_blank'>Windows10 カメラ アプリ</a><br>
-
-</p>
-<p>
-<h5>■本サイトについて</h5>
-個人的なコードのサンプル・メモ集です。勉強した事などメモを取っていこうと思います。<br>
-発信できるレベルのモノが出来た時に技術サイト（Zenn）の記事としてフィードバックしていこうと思います。<br>
+　Pythonで気になった構文・仕様のメモ（思いの他、癖が強そうな言語な印象）<br>
+　・ファイル入出力は楽に安全にできる<br>
+　・OSコマンドが気軽に実行できるがOSコマンドインジェクションは気を付けないといけない<br>
+　・プログラム行末が改行のみでよい（複数行の時にバックスラッシュ）<br>
 </p>
 
 <p>
-<h5>■サイト構成</h5>
-管理画面からHTML生成する静的サイトを中心としたサイト（他にPHPのツールなど）<br>
-（ロ-カル環境）PHP+Laravel+Mysql => HTML生成（HTTP保存） →（本番環境）HTMLアップロード<br>
-ローカル環境に管理画面＋HTML生成の機能を実装して、本番環境は生成したHTML＋JS＋CSSを配置する構成にしている。<br>
-<img src="/mk/img/20231225_001.png" alt="構成図" /><br>
-Bootstrap：5.3.0<br>
-JQuery：<br>
-PHP：8.2（フレームワーク Laravel10.x）<br>
-Mysql：5.7<br>
-Docker（環境）<br>
-Google タグマネージャー<br>
-Google アナリティクス（GA4）<br>
+<h2>◆変数</h2>
+　・小数点以下の挙動 0,1**3 すると誤差が出る（仕様）<br>
+　　小数点以下はライブラリを使用する必要がある。<br>
 <br>
-</p>
-
-<p>
-<h5>◆本サイトの目的</h5>
-本サイトのサンプル・コード・解説などのコンテンツは自分用をメインとしています。<br>
-サンプル・コードは断りなく自由に利用・改変OKです。但し、正しいかどうかは保証できませんので自己責任にてお願いします。<br>
-ブログ・日記・私見などの記事も存在しますが、こちらは個人的な意見・感想です。所属する組織・チームとは関係ありません。<br>
-</p>
-<p>
-本番環境にCMSは使わず、ローカル環境＋管理システムで生成したHTMLファイル一式をアップロードする構成にしました。<br>
-WordPressは脆弱性対応をちゃんとしないといけないので手がかかるし（放置されている企業サイトが多いけど・・・）<br>
-本番環境をゴリゴリのLAMP（PHP＋Mysql）にすると、それはそれでセキュアコーディングを意識しないといけない。<br>
-（もちろんPHP・MYSQLのバージョン管理やフレームワークのサポート切れ、定期的に更新しないとけない）<br>
-セキュリティリスクを抑えて、なるべく放置できるサイトにしておきたいので<br>
-静的生成したHTMLをアップロードする形で構成しました。（全てのHTMLではなく一部で言語は使ってます。）<br>
-それと静的ページ構成にしとくと無料レンサバの低スペックを気にしなくていいのも大きなメリットです。<br>
-</p>
-
-<p>
-<h5>■管理者について</h5>
-名前：おつじ<br>
-Job：phper/WEB開発/情報システム<br>
-職歴：WEBエンジニア/情シス/設備管理/製本工場/etc<br>
-その他・資格：建築物衛生管理者/第二種電気工事士<br>
-自己紹介：<br>
-色々な仕事をしてきたphperです。LAMP(PHP)環境が得意です。<br>
-他にも製品選定・運用管理・脆弱性対応/セキュリティ対策・IT教育・etc。<br>
-連絡先は用意してないので必要がありましたらSNSのDMなどへ。<br>
-</p>
-
-<p>
-<h5>■今後の予定</h5>
-・データベース更新時に自動的にHTML生成する<br>
-・画像管理<br>
-・リファクタリング（PSRに沿ったり、SOLID原則を目指して）<br>
-・自動デプロイ（CD）※Github<br>
-・自動テスト（CI）<br>
-</p>
-
+　・「リスト（オブジェクト）は参照渡し」になる<br>
+　　※リスト（オブジェクト）の値渡しはcopy()メソッドを使う（y = x.copy)<br>
 <br>
+　・辞書型と集合型は両方とも {} を使う<br>
+<br>
+　・変数確認<br>
+　　0 or 空文字 or None or False はFalse、それ以外はTrueになる<br>
+　　空配列 [] () {} はfalseになる<br>
+　　if hoge:<br>
+　　    print("ok")<br>
+　　else<br>
+　　    print("ng")<br>
+<br>
+　・変数のスコープ<br>
+　　for文の中で作成した変数が、for文の外で使える。（PHPと同様）<br>
+　　※def（関数）は外に出てこない<br>
+　　グローバル変数はdef内で使用できるが、そのままでは変更はできない<br>
+</p>
 <br>
 
-</div>
+<p>
+<h2>◆演算子</h2>
+　「100//10」割り算の後、小数点以下切り捨てる<br>
+　「100**10」は100の10乗<br>
+</p>
+
+<p>
+<h2>◆if文</h2>
+　・演算子
+　　&　　ビット演算子　ビット単位論理積 {} & {} => 両方にあるキーを抽出（←要確認）
+　　|　　ビット演算子　ビット単位論理和 {} | {} => 重複を合体（←要確認）
+　　and　真偽値演算子
+　　or 　真偽値演算子
+</p>
+
+<p>
+<h2>◆ループ文</h2>
+　・for 変数 in 配列:<br>
+　・辞書型{}の場合 {'x': 100, 'y': 200}<br>
+　　for k,v in 辞書型配列.items():<br>
+<br>
+　・for ... else でループの最後の後に処理を書くことができる<br>
+　　ただし、break文で終了した場合はelseは実行されない。<br>
+<br>
+　・インクリメントループはwhileを使うことになる<br>
+　　while ... else でループの最後の後に処理を書くことができる<br>
+　　ただし、break文で終了した場合はelseは実行されない。<br>
+</p>
+
+<p>
+<h2>◆リスト（配列）</h2>
+　・リスト内包処理<br>
+　  t = (1,2,3,4,5)<br>
+　  r = []<br>
+　  r = [i for i in t if i % 2 ==0]   # 偶数だけ取り出す<br>
+　  r = [i*2 for i in t if i % 2 ==0] # 結果を計算して配列に入れられる<br>
+<br>
+　・辞書表記（連想配列）/集合型<br>
+　　w = {'mon':'coffee','tue':'milk'}<br>
+　　g = {1,2,3}<br>
+</p>
+
+<p>
+<h2>◆関数</h2>
+　・関数の中に関数を作れる<br>
+　　　関数を返す関数を作れる（外側の関数の引数を保持した内側の関数を返す）<br>
+　　　※あまりClassという概念も無い感じ。<br>
+<br>
+　・関数の引数に*argsと**kwargs。<br>
+　　引数に任意の数の引数（可変長引数）を指定できる。<br>
+　　*args: 複数の引数をタプルとして受け取る<br>
+　　**kwargs: 複数のキーワード引数を辞書として受け取る<br>
+</p>
+
+<p>
+<h2>◆パッケージ</h2>
+　・パッケージはフォルダ名（ファイル名とドットでつなぐ）<br>
+<br>
+　・実行されているファイルの判別<br>
+　　「__name__ == "__main__"」<br>
+　　　---------------------------<br>
+　　　　def main():<br>
+　　　　　print("実行ファイル")<br>
+　　　　　<br>
+　　　　if __name == '__main__':<br>
+　　　　　main()<br>
+　　　---------------------------<br>
+<br>
+・インポート<br>
+　　import xxx<br>
+<br>
+・ファイル名にアンダーバーなど含まれている場合はimportが使えないので下記のようにする。<br>
+　　fibo = importlib.import_module("20231221_fibo")<br>
+　　print(fibo.fib(20))<br>
+<br>
+・from xxx import *<br>
+　fromの先の関数をファイル内に引き込むので接続詞を付けずに関数を使用する。<br>
+　　from hello import world<br>
+　　print(world)<br>
+<br>
+・from [ファイル名] import [クラス名]<br>
+はクラスを引き込む<br>
+</p>
+
+<p>
+<h2>◆オブジェクトとクラス</h2>
+　・「new()」インスタンスの命令は存在しないが・・・<br>
+　　p = Person() ← インスタンスが作成される<br>
+　　p = Person   ← インスタンスは作成されない（クラス自体が変数に入っている状態）<br>
+<br>
+　・メソッドの第一引数は必ず「self」になる<br>
+　　（メソッド呼び出し時は第二引数から値がセットされていく）<br>
+<br>
+　・コンストラクタ<br>
+　　def __init__(self):<br>
+　　    pass<br>
+<br>
+　・デストラクタ<br>
+　　def __del__(self):<br>
+　　    pass<br>
+<br>
+　　person = Person() # コンストラクタ実行<br>
+　　del person        # デストラクタが実行される<br>
+<br>
+　・クラス変数（オブジェクト共通になる）⇔インスタンス変数（オブジェクト固有）<br>
+　　class Sample(object):<br>
+　　	# クラス変数（オブジェクト共通になる）<br>
+　　	hensu = "変数"<br>
+　　	# コンストラクタ<br>
+　　	def __init__(self):<br>
+　　		self.hensu = "インスタンス変数" # インスタンス変数はオブジェクト固有となる<br>
+<br>
+　・多重継承が許可されている<br>
+　　※同じメソッド名がある場合は左側のクラスが優先される<br>
+　　	PersonCarRobot(Person, car):　　#Personのメソッドが優先される<br>
+</p>
+
+<p>
+<h2>◆OSコマンド実行</h2>
+　標準ライブラリ：subprocess ※osライブラリは非推奨らしい<br>
+　※標準は「標準出力と標準エラー出力」に出力される。戻り値の受け取り方はプロパティを渡す必要がある。<br>
+　　import subprocess<br>
+　　proc = subprocess.run(["dir"],stdout = subprocess.PIPE, stderr = subprocess.PIPE,shell=True)<br>
+　　print(proc.stdout.decode("cp932"))<br>
+</p>
+<br>
     </main>
   </div>
   <footer>
