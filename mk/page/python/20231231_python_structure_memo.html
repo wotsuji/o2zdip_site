@@ -151,10 +151,12 @@
 　・変数確認<br>
 　　0 or 空文字 or None or False はFalse、それ以外はTrueになる<br>
 　　空配列 [] () {} はfalseになる<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　if hoge:<br>
 　　    print("ok")<br>
 　　else<br>
 　　    print("ng")<br>
+    </div>
 <br>
 　・変数のスコープ<br>
 　　for文の中で作成した変数が、for文の外で使える。（PHPと同様）<br>
@@ -172,10 +174,12 @@
 <p>
 <h2>◆if文</h2>
 　・演算子<br>
+        <div class="bg-dark text-light py-1 ps-3">
 　　&　　ビット演算子　ビット単位論理積 {} & {} => 両方にあるキーを抽出（←要確認）<br>
 　　|　　ビット演算子　ビット単位論理和 {} | {} => 重複を合体（←要確認）<br>
 　　and　真偽値演算子<br>
 　　or 　真偽値演算子<br>
+    </div>
 </p>
 
 <p>
@@ -195,14 +199,18 @@
 <p>
 <h2>◆リスト（配列）</h2>
 　・リスト内包処理<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　  t = (1,2,3,4,5)<br>
 　  r = []<br>
 　  r = [i for i in t if i % 2 ==0]   # 偶数だけ取り出す<br>
 　  r = [i*2 for i in t if i % 2 ==0] # 結果を計算して配列に入れられる<br>
+    </div>
 <br>
 　・辞書表記（連想配列）/集合型<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　w = {'mon':'coffee','tue':'milk'}<br>
 　　g = {1,2,3}<br>
+    </div>
 </p>
 
 <p>
@@ -222,6 +230,7 @@
 　・パッケージはフォルダ名（ファイル名とドットでつなぐ）<br>
 <br>
 　・実行されているファイルの判別<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　「__name__ == "__main__"」<br>
 　　　---------------------------<br>
 　　　　def main():<br>
@@ -230,18 +239,25 @@
 　　　　if __name == '__main__':<br>
 　　　　　main()<br>
 　　　---------------------------<br>
+    </div>
 <br>
 ・インポート<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　import xxx<br>
+    </div>
 <br>
 ・ファイル名にアンダーバーなど含まれている場合はimportが使えないので下記のようにする。<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　fibo = importlib.import_module("20231221_fibo")<br>
 　　print(fibo.fib(20))<br>
+    </div>
 <br>
 ・from xxx import *<br>
 　fromの先の関数をファイル内に引き込むので接続詞を付けずに関数を使用する。<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　from hello import world<br>
 　　print(world)<br>
+    </div>
 <br>
 ・from [ファイル名] import [クラス名]<br>
 はクラスを引き込む<br>
@@ -250,43 +266,55 @@
 <p>
 <h2>◆オブジェクトとクラス</h2>
 　・「new()」インスタンスの命令は存在しないが・・・<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　p = Person() ← インスタンスが作成される<br>
 　　p = Person   ← インスタンスは作成されない（クラス自体が変数に入っている状態）<br>
+    </div>
 <br>
 　・メソッドの第一引数は必ず「self」になる<br>
 　　（メソッド呼び出し時は第二引数から値がセットされていく）<br>
 <br>
 　・コンストラクタ<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　def __init__(self):<br>
 　　    pass<br>
+    </div>
 <br>
 　・デストラクタ<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　def __del__(self):<br>
 　　    pass<br>
+    </div>
 <br>
 　　person = Person() # コンストラクタ実行<br>
 　　del person        # デストラクタが実行される<br>
 <br>
 　・クラス変数（オブジェクト共通になる）⇔インスタンス変数（オブジェクト固有）<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　class Sample(object):<br>
 　　	# クラス変数（オブジェクト共通になる）<br>
 　　	hensu = "変数"<br>
 　　	# コンストラクタ<br>
 　　	def __init__(self):<br>
 　　		self.hensu = "インスタンス変数" # インスタンス変数はオブジェクト固有となる<br>
+    </div>
 <br>
 　・多重継承が許可されている<br>
 　　※同じメソッド名がある場合は左側のクラスが優先される<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　	PersonCarRobot(Person, car):　　#Personのメソッドが優先される<br>
+    </div>
 </p>
 
 <p>
 <h2>◆OSコマンド実行</h2>
 　標準ライブラリ：subprocess ※osライブラリは非推奨らしい<br>
 　※標準は「標準出力と標準エラー出力」に出力される。戻り値の受け取り方はプロパティを渡す必要がある。<br>
+    <div class="bg-dark text-light py-1 ps-3">
 　　import subprocess<br>
 　　proc = subprocess.run(["dir"],stdout = subprocess.PIPE, stderr = subprocess.PIPE,shell=True)<br>
 　　print(proc.stdout.decode("cp932"))<br>
+     </div>
 </p>
 <br>
     </main>
