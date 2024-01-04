@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="jp">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="ja">
+  <title>UMLを学びなおす（2024/01/04）</title>
+  <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
+  <meta name="author" content="otsuji">
+  <!-- ビューポート -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- OG設定 -->
+  <meta property="og:site_name" content="o2zdip">
+  <meta property="og:description" content="個人的なコードのサンプル・メモ集です。">
+  <meta property="og:title" content="o2zdip">
+  <meta property="og:url" content="http://o2zdip.starfree.jp/">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="website"><!-- トップページはwebsite，個別ページはarticle -->
+  <!-- Twitter共通設定 -->
+  <meta name="twitter:card" content="">
+  <meta name="twitter:site" content="">
+
+  <!-- ファビコン -->
+  <link rel="icon" href="/mk/favicon.ico">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P3P4KB94');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- CSS設定 -->
+  <link href="/mk/css/bootstrap-reboot.min.css" rel="stylesheet"><!-- Bootstrap-reboot-->
+  <link href="/mk/css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap-min -->
+  <link href="/mk/css/style.css" rel="stylesheet">
+  <style>
+  </style>
+
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3P4KB94" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/mk/index.html">o2zdip</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/mk/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search 未実装" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="d-flex flex-row w-100">
+    <nav class="bg-secondary side_menu">
+      <p class="mb-0 pb-0">
+        <button type="button" class="btn w-100 pb-0" id="side_menu_button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+          <div class="side_menu_text" style="text-align: left; color: #FFFFFF;">&lt;&lt;</div>
+        </button>
+      </p>
+      <div class="collapse collapse-horizontal show" id="collapseWidthExample">
+        <ul class="nav flex-column mb-5 pb-2">
+          <li class="nav-item"><a href="/mk/page/html/base.html" class="nav-link link-light">HTML</a></li>
+          <li class="nav-item"><a href="/mk/page/javascript/base.html" class="nav-link link-light">JavaScript</a></li>
+          <li class="nav-item"><a href="/mk/page/css/base.html" class="nav-link link-light">CSS</a></li>
+          <li class="nav-item"><a href="/mk/page/php/base.html" class="nav-link link-light">PHP</a></li>
+          <li class="nav-item"><a href="/mk/page/python/base.html" class="nav-link link-light">Python</a></li>
+          <li class="nav-item"><a href="/mk/page/git/base.html" class="nav-link link-light">Git</a></li>
+          <li class="nav-item"><a href="/mk/page/system/base.html" class="nav-link link-light">設計</a></li>
+          <li class="nav-item"><a href="/mk/page/server/base.html" class="nav-link link-light">インフラ</a></li>
+          <li class="nav-item"><a href="/mk/page/blog/base.html" class="nav-link link-light">ブログ関連</a></li>
+          <div style="color: #ffffff; text-align: center;">------------</div>
+          <li class="nav-item"><a href="/mk/page/app/base.html" class="nav-link link-light">アプリ</a></li>
+          <li class="nav-item"><a href="/mk/page/link/base.html" class="nav-link link-light">リンク集</a></li>
+          <div style="color: #ffffff; text-align: center;">------------</div>
+          <li class="nav-item"><a href="https://twitter.com/w_o2z" class="nav-link link-light" target="_blank">X(Twitter)</a></li>
+          <li class="nav-item"><a href="https://note.com/w_o2z" class="nav-link link-light" target="_blank">note</a></li>
+          <li class="nav-item"><a href="https://zenn.dev/o2z" class="nav-link link-light" target="_blank">Zenn</a></li>
+          <li class="nav-item"><a href="https://github.com/wotsuji" class="nav-link link-light" target="_blank">github</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="container-fluid pt-1">
+      <div><a href="./../../index.html">HOME</a> &gt; 設計</div>
+<h1 class="pt-1">UMLを学びなおす</h1>
+<h2>◆目的</h2>
+・最近のドメイン駆動設計とかDI注入とか、人に説明できるかというと怪しいのでクラス図かけるように<br>
+　UMLをおさらいしとかないとなって思ったのとクラス図やユースケース図の辺りを可視化できるのを目標とする。<br>
+・単純にUMLはオブジェクト指向との親和性が高いのでモダンなコーディングのスタイルに合ってくる。<br>
+・UMLは図に多数の種類があるが、よく使いそうなモノだけ学んでおくだけでいいというスタンスでいく。<br>
+<br>
+<h2>◆UMLの主な図式</h2>
+　よく使いそう（使いたい）に絞って「〇＞△」に分類した。<br>
+　まず「〇」について学び、その次に「△」を学ぶと良さそうに思う。<br>
+<br>
+【構造図】<br>
+　〇クラス図<br>
+　　システムを俯瞰してモデリングする<br>
+　<br>
+　△コンポーネント図<br>
+　　サブシステム間の連携（インターフェイス）を図にする<br>
+　　モジュール間の関係を図にする<br>
+　<br>
+　△オブジェクト図<br>
+　　クラス図に似ているがクラス図より具体的に図にする。システムの理解の助けに作成する<br>
+　<br>
+　△配置図<br>
+　　ハードウェアの配置構造と通信関係を図にしたモノ<br>
+<br>　
+　△パッケージ図<br>
+　　クラス図をグルーピングしてパッケージ単位にした図<br>
+　<br>
+【振る舞い図】<br>
+　〇ユースケース図<br>
+　　use（使う・利用する）＋case（実例・事例）<br>
+　　利用者（アクター）と行動（ユースケース）を線で結んだ図<br>
+　<br>
+　〇シーケンス図<br>
+　　上から下へ向かって「時系列順」に「オブジェクト間の相互作用」を図にする<br>
+　<br>
+　△コミュニケーション図<br>
+　　シーケンス図は時系列だが、こちらは「オブジェクト間の関係」を図にする<br>
+　<br>
+　〇ステートマシン図<br>
+　　状態遷移図のこと<br>
+　<br>
+　〇アクティビティ図<br>
+　　フローチャートと同じ<br>
+<br>
+<h2>◆何で作画するか（ツールは何を使うか）</h2>
+　・draw.io<br>
+　　無料で使える<br>
+　　日本語化されている<br>
+　　ブラウザだけでも使える<br>
+　　作図をサンプルから開始できる<br>
+　　図形の意味などヒントメッセージが多い<br>
+<br>
+　・vs_code（PlantUML）<br>
+　　PlantUMLプラグインを利用する。<br>
+　　無料で使える<br>
+　　コードで記述できる（コードなので差分をgithubで管理できる）<br>
+　　JAVA実行環境・Graphvizのインストールが必要<br>
+<br>
+　・miro<br>
+　　有料（本格的に使うなら有料化は必要となる）<br>
+　　WEBサービスで共有しやすい<br>
+　　同時編集ができる<br>
+　　情報共有としての機能が豊富<br>
+<br>
+　とりあえずはdraw.ioで試しに作成しているがvs_codeでコード化できているのは魅力的。<br>
+　<br>
+<h2>◆クラス図</h2>
+　<br>
+　●図形（セパレートを入れる）<br>
+　　　クラス名（オブジェクト名）<br>
+　　　--------<br>
+　　　属性（変数）<br>
+<div class="bg-dark text-light py-1 ps-3">
+　　　　+ 属性名：データ型<br>
+　　　　- 属性名：データ型<br>
+</div>
+　　　--------<br>
+　　　振る舞い（メソッド）<br>
+<div class="bg-dark text-light py-1 ps-3">
+　　　　+ メソッド名(引数)：戻り値<br>
+　　　　- メソッド名(引数)：戻り値<br>
+</div>
+　　　+：外部からアクセス可能<br>
+　　　-：外部からアクセス不可能<br>
+　　　#：自クラス・サブクラスからアクセス可能<br>
+　　　－：パッケージ内からのみアクセス可能<br>
+　　　※+-だけで#と－は使わなくていいかも。<br>
+　<br>
+　●関係線（図形を関連付ける）<br>
+　　・実線<br>
+　　　・関連１（図形Aと図形Bは関連している）～は～を所有している<br>
+　　　　　　数の意味　  関係の意味　  数の意味<br>
+　　　[図形A]---------------------------------[図形B]<br>
+　　　　　　数　　　　　　　　　　　　　数<br>
+　　　<br>
+　　　[社員]----------------------------------[社員証]<br>
+　　　　　　1　　　　　　所有する　　　　　　1<br>
+　　　　　　<br>
+　　・実線＋矢印（依存）<br>
+　　　[図形A]-------------------------------→[図形B]<br>
+　　　　　　<br>
+　　　[車]-------------------------------→[ガソリン]<br>
+　　　例：車はガソリンがないと動かない。<br>
+<br>
+　　・破線＋矢印（use/include）<br>
+　　　　　　　　　　　　　<<use>><br>
+　　　[クラスA]- - - - - - - - - - - - - - - →[クラスB]<br>
+　　　　※クラスAはクラスBをuse(include)している<br>
+　　　<br>
+　　・集約：（全体は一部を集約している）クラスオブジェクトなど強い依存は無い関係<br>
+　　　　　　数の意味　関係の意味　数の意味<br>
+　　　[一部]-------------------------------◇[全体]<br>
+　　　　　　数　　　　　　　　　　　　　数<br>
+　　　　　　<br>
+　　　[社員]-------------------------------◇[部署]<br>
+　　　　　　0 .. *　　　　　　　　　　　　1<br>
+　　　<br>
+　　・コンポジション（合成）：（全体は一部を持っている）強い依存がある関係<br>
+　　　　　　数の意味　関係の意味　数の意味<br>
+　　　[一部]-------------------------------◆[全体]<br>
+　　　　　　数　　　　　　　　　　　　　数<br>
+　　　　　　<br>
+　　　[部署]-------------------------------◆[会社]<br>
+　　　　　　1 .. *　　　　　　　　　　　　1<br>
+　　<br>
+　　・継承関係<br>
+　　　・実線＋三角矢印（継承）<br>
+　　　　[サブクラスA（犬）]---------------------------▷[スーパークラスB（哺乳類）]<br>
+<br>
+　　　・破線＋三角矢印（インターフェース）<br>
+　　　　[クラスA（コントローラー実装）]- - - - - - - -▷[インターフェース]<br>
+<br>
+<h2>◆ER図（UMLではないが・・・）</h2>
+　●図形（セパレートを入れる）<br>
+<div class="bg-dark text-light py-1 ps-3">
+　　　----------------<br>
+　　　テーブル名（オブジェクト名）<br>
+　　　----------------<br>
+　　　id [PK]<br>
+　　　----------------<br>
+　　　name<br>
+　　　enabled [有効フラグ]<br>
+　　　created [作成日]<br>
+　　　updated [更新日]<br>
+　　　----------------<br>
+</div>
+<br>
+　●関係線<br>
+　　・実線<br>
+　　・フォークのような形（多）<br>
+　　・線の根元に円（0..n）<br>
+　　・線の手元に1本線（レコード数 1）<br>
+　　・線に手元に2本線（レコード数 1 に限定する）<br>
+　　・リレーションのレコード対応に凡例（0..*　/ 1） <br>
+<br>
+<h2>◆その他</h2>
+　・ユースケース図<br>
+　・シーケンス図<br>
+　・ステートマシン図<br>
+　・アクティビティ図<br>
+　辺りは、必要な時にサンプルを見ながらで大丈夫そうかな。<br>
+<br>
+<h2>◆最後に</h2>
+UMLを学習するにあたって「クラス図の説明で関連線の矢印の向きが逆」という書籍やサイトが多いです。<br>
+どちらも言っていることが違うのですごくハマりました。特に書籍が違ってるって。。<br>
+というのがあるので基本は公式に近いところを参照するのが良いと思いました。<br>
+<br>
+<br>
+    </main>
+  </div>
+  <footer>
+    <p class="small text-center">Copyright &copy; otsuji.wataru</p>
+  </footer>
+
+  <!-- JavaScript  -->
+  <script src="/mk/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap-min -->
+  <script src="/mk/js/base.js"></script>
+  <script>
+  </script>
+
+</body>
+
+</html>
