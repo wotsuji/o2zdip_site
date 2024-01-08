@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="ja">
-  <title>Pythonサブページ</title>
+  <title>Python Fizz Buzz（2024/01/08）</title>
   <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
   <meta name="author" content="otsuji">
   <!-- ビューポート -->
@@ -129,18 +129,65 @@
     </nav>
     <main role="main" class="container-fluid pt-1">
       <div><a href="./../../index.html">HOME</a> &gt; Python</div>
-<div>
-<h1 class="pt-1">Python</h1>
-<p class="lead"></p>
+
+<h1>Python Fizz Buzz（2024/01/08） </h1>
 <p>
-<h5>■ページ一覧</h5>
-<a href="/mk/page/python/20240108_python_Fizz_Buzz.html">Python Fizz Buzz（2024/01/08）</a><br>
-たまに設計するFizzBuzz 2024年1月5日版<br>
-<br>
-<a href="/mk/page/python/20231231_python_structure_memo.html">Python構文メモ</a><br>
-Pythonで気になった構文・仕様のメモ<br>
+プログラムの基本「Fizz Buzz」をPythonで書いてみました。<br>
+最近の設計思想を図るのに向いているかなとは思います。<br>
+（来年書くとまた違う設計のコードが出来るかもしれない）<br>
+<h5>・FizzBuzzルール</h5>
+　３の倍数で「Fizz」<br>
+　５の倍数で「Buzz」<br>
+　繰り返しは「1-100」まで<br>
+とします。<br>
 </p>
+
+<p>
+<h5>◆コード全体はGitHubを参照</h5>
+<a href="https://github.com/wotsuji/python_fizz_buzz/blob/master/FizzBuzz_20240105.py" target="_blank">python_fizz_buzz</a>
+</p>
+
+<p>
+<h5>◆コード概要</h5>
+１．メイン処理がFizzBuzzSettingのインスタンスを作成する（初期値以外に設定変更をコンストラクタに注入可能にしている）<br>
+<div class="bg-dark text-light py-1 ps-3">
+# メイン処理<br>
+def main():<br>
+　↓<br>
+# 値オブジェクトクラス<br>
+o_fizz_buzz_setting = FizzBuzzSetting( [設定] )<br>
 </div>
+２．FizzBuzzクラスのコンストラクタにFizzBuzzSettingを渡して設定を注入する<br>
+<div class="bg-dark text-light py-1 ps-3">
+# メイン処理<br>
+def main():<br>
+　↓<br>
+# FizzBuzzクラス<br>
+o_fizz_buzz =  FizzBuzz(o_fizz_buzz_setting)<br>
+</div>
+</p>
+
+<p>
+<h5>◆実行結果</h5>
+<div class="bg-dark text-light py-1 ps-3">
+[1,&quot;&quot;]<br>
+[2,&quot;&quot;]<br>
+[3,&quot;Fizz&quot;]<br>
+[4,&quot;&quot;]<br>
+[5,&quot;Buzz&quot;]<br>
+[6,&quot;Fizz&quot;]<br>
+[7,&quot;&quot;]<br>
+[8,&quot;&quot;]<br>
+・・・<br>
+</div>
+</p>
+
+<p>
+設定と実行のクラスを分轄して設定を外部から注入する形。<br>
+「３，Fizz」と「５，Buzz」と「1-100」を外部から変更可能にしてる。<br>
+設定変更はコードを見るよりもサンプルを見てもらえれば良いようにしている。<br>
+たまにFizzBuzzの設計を考えると違うコードが出てきそう。<br>
+</p>
     </main>
   </div>
   <footer>
