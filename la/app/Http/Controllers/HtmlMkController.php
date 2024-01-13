@@ -39,10 +39,10 @@ class HtmlMkController extends Controller
         $update_records = HtmlPageDetail::where([
             ["enabled", "=", 1],
             ["is_update_hisotry", "=", 1],
-        ])->orderBy('updated_at', 'desc')->limit(10)->get();
+        ])->orderBy('created_at', 'desc')->limit(10)->get();
         $update_log_html = '';
         foreach ($update_records as $update_record) {
-            $update_log_html .= $update_record['updated_at']->format('Y年m月d日') . "　【" ;
+            $update_log_html .= $update_record['created_at']->format('Y年m月d日') . "　【" ;
             $update_log_html .= $category_list[$update_record->category_id] . "】 <a href='" . $update_record['page_path'] . "' target='_blank'>" . $update_record['page_title'] . "</a><br>\n";
         }
         $contents = preg_replace('[%update_log_last_ten%]', $update_log_html, $contents);
