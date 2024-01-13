@@ -22,7 +22,7 @@
   <meta name="twitter:site" content="">
 
   <!-- ファビコン -->
-  <link rel="icon" href="/la/public/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
 
   <!-- CSS設定 -->
   <link href="/la/public/css/bootstrap-reboot.min.css" rel="stylesheet"><!-- Bootstrap-reboot-->

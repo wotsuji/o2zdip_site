@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="ja">
-  <title>HTMLサブページ</title>
+  <title>HTML5を学びなおす</title>
   <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
   <meta name="author" content="otsuji">
   <!-- ビューポート -->
@@ -128,17 +128,80 @@
       </div>
     </nav>
     <main role="main" class="container-fluid pt-1">
-      <div><a href="./../../index.html">HOME</a> &gt; HTML</div>
-<div>
-<h1 class="pt-1">HTML</h1>
-<p class="lead"></p>
-<p>
-<h5>■ページ一覧</h5>
-<a href="/mk/page/html/20240113_html_learn.html">HTML5を学びなおす（2024/01/13）</a><br>
-HTML5などで追加されたタグ、最近よく見かけるようになったHTMLタグ、ちょっと見直さないといけないなって思っていたので改めて整理する。<br>
-<br>
-</p>
+      <div><a href="./../../index.html">HOME</a> &gt; <a href="/mk/page/html/base.html">HTML</a></div>
+
+<h2>HTML5を学びなおす</h2>
+HTML5などで追加されたタグ、最近よく見かけるようになったHTMLタグ<br>
+ちょっと見直さないといけないなって思っていたので改めて整理する。<br>
+※あくまで個人的に気になった点、おさえておこうかなと思った点を整理しています。<br>
+
+<h3>◆labelタグ</h3>
+入力項目と文字列(ラベル)を関連付ける<br>
+<div class="bg-dark text-light py-2 ps-3">
+<pre class="mb-0"><code>&lt;label for=&quot;sei&quot;...&gt;姓&lt;/label&gt;
+&lt;input type=&quot;&quot; name=&quot;sei&quot;...</code></pre>
 </div>
+
+<h3>◆input type=text に対する「pattern」属性</h3>
+入力値のパターンマッチ（正規表現）でフォームサブミット時に入力チェック＋エラーメッセージを作成できる。<br>
+※HTMLで入力チェックしたとしても、常にサーバーサイドでの入力チェックは必要。<br>
+<div class="bg-dark text-light py-2 ps-3">
+<pre class="mb-0"><code>例：
+半角英数：^[0-9A-Za-z]+$
+郵便番号：&#xa5;d{3}-&#xa5;d{4}</code></pre>
+</div>
+
+<h3>◆構造タグ</h3>
+<div class="bg-dark text-light py-2 ps-3">
+<pre class="mb-0"><code>&lt;header&gt;&lt;!-- ヘッダ情報 --&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;!-- ナビゲーション情報 --&gt;&lt;/nav&gt;
+&lt;main&gt;&lt;!-- メインコンテンツ --&gt;&lt;/main&gt;
+&lt;section&gt;&lt;!-- セクション(章) --&gt;&lt;/section&gt;
+&lt;aside&gt;&lt;!-- 余談/挿話(サイドバー) --&gt;&lt;/aside&gt;
+&lt;footer&gt;&lt;!-- フッタ情報 --&gt;&lt;/footer&gt;
+&lt;code&gt;&lt;!-- プログラムコードを意味する（固定幅フォントになる） --&gt;&lt;/code&gt;</code></pre>
+</div>
+
+<h3>◆linkタグに対する「preload」について</h3>
+ScriptファイルとCSSをブラウザのレンダリングより前に先読みする<br>
+<div class="bg-dark text-light py-2 ps-3">
+<pre class="mb-0"><code>&lt;link rel=&quot;preload&quot;...
+　※reloadを付ける時は「as」を必ず付ける（先読みしたリソースの利用先を指定する）</code></pre>
+</div>
+
+<h3>◆Scriptタグに対する「async / defer」について</h3>
+　async属性：HTMLパースを待たずにダウンロード完了直後にScriptが実行される<br>
+　defer属性：HTMLパースの後にScriptが実行される（タグの記述順に実行される）<br>
+　どちらも無い場合は「直列ダウンロード」となる。<br>
+　どちらかを付ける場合は「並列ダウンロード」が行われる。<br>
+<div class="bg-dark text-light py-2 ps-3">
+<pre class="mb-0"><code>&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;&lt;/title&gt;
+
+  &lt;link rel=&quot;preload&quot; href=&quot;style.css&quot; as=&quot;style&quot; /&gt;
+  &lt;link rel=&quot;preload&quot; href=&quot;main.js&quot; as=&quot;script&quot; /&gt;
+
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script src=&quot;main.js&quot; defer&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+</div>「link rel は preload を付ける」＋「script は defer を付ける」がベストかなと思います。<br>
+
+<h3>◆「title属性」</h3>
+　カーソルを当てると吹き出しを表示する<br>
+　※ALT属性は画像の説明（ALTはできるだけ記載する方がSEO的に良い）<br>
+
+<h3>◆「 タグ名 data-*=value 」ユーザ拡張属性</h3>
+　*の部分に好きな名前を指定してユーザ独自の属性を追加することができる<br>
+
+<h3>◆最後に</h3>
+あくまで現時点で気になった点で、廃止になったタグ、media関連で追加されているタグなど変更点は多々あるかと思います。<br>
+<br>
+<br>
+<br>
+<br>
     </main>
   </div>
   <footer>
