@@ -70,7 +70,7 @@ if (isset($_POST['chg_text'])) {
 			<td>&amp;quot;</td>
 		</tr>
 		<tr>
-			<td>&#xa5;</td>
+			<td>\</td>
 			<td>&amp;#xa5;</td>
 		</tr>
 	</table>
