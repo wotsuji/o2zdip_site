@@ -50,5 +50,11 @@ for ($y = $now_y; $y >= 1960; $y--) {
 			</tr>
 		<?php } ?>
 	</table>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 </body>
