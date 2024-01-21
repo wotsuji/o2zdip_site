@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Cache-Control" content="no-cache"> 
-  <title>{{$page_title}}</title>
+  <title>Pyhonとオブジェクト指向設計の相性（2024/01/21）</title>
   <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
   <meta name="author" content="otsuji">
   <!-- ビューポート -->
@@ -25,7 +25,7 @@
   <meta name="twitter:site" content="">
 
   <!-- ファビコン -->
-  <link rel="icon" href="{{$public_path}}/favicon.ico">
+  <link rel="icon" href="/mk/favicon.ico">
 
   <!-- Google Tag Manager -->
   <script>
@@ -47,9 +47,9 @@
   <!-- End Google Tag Manager -->
 
   <!-- CSS設定 -->
-  <link href="{{$public_path}}/css/bootstrap-reboot.min.css" rel="stylesheet"><!-- Bootstrap-reboot-->
-  <link href="{{$public_path}}/css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap-min -->
-  <link href="{{$public_path}}/css/style.css" rel="stylesheet">
+  <link href="/mk/css/bootstrap-reboot.min.css" rel="stylesheet"><!-- Bootstrap-reboot-->
+  <link href="/mk/css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap-min -->
+  <link href="/mk/css/style.css" rel="stylesheet">
   <style>
   </style>
 
@@ -63,14 +63,14 @@
   <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{$public_path}}/index.html">o2zdip</a>
+        <a class="navbar-brand" href="/mk/index.html">o2zdip</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{$public_path}}/index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="/mk/index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -110,18 +110,18 @@
       </p>
       <div class="collapse collapse-horizontal show" id="collapseWidthExample">
         <ul class="nav flex-column mb-5 pb-2">
-          <li class="nav-item"><a href="{{$public_path}}/page/html/base.html" class="nav-link link-light">HTML</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/javascript/base.html" class="nav-link link-light">JavaScript</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/css/base.html" class="nav-link link-light">CSS</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/php/base.html" class="nav-link link-light">PHP</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/python/base.html" class="nav-link link-light">Python</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/git/base.html" class="nav-link link-light">Git</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/system/base.html" class="nav-link link-light">設計</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/server/base.html" class="nav-link link-light">インフラ</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/blog/base.html" class="nav-link link-light">ブログ関連</a></li>
+          <li class="nav-item"><a href="/mk/page/html/base.html" class="nav-link link-light">HTML</a></li>
+          <li class="nav-item"><a href="/mk/page/javascript/base.html" class="nav-link link-light">JavaScript</a></li>
+          <li class="nav-item"><a href="/mk/page/css/base.html" class="nav-link link-light">CSS</a></li>
+          <li class="nav-item"><a href="/mk/page/php/base.html" class="nav-link link-light">PHP</a></li>
+          <li class="nav-item"><a href="/mk/page/python/base.html" class="nav-link link-light">Python</a></li>
+          <li class="nav-item"><a href="/mk/page/git/base.html" class="nav-link link-light">Git</a></li>
+          <li class="nav-item"><a href="/mk/page/system/base.html" class="nav-link link-light">設計</a></li>
+          <li class="nav-item"><a href="/mk/page/server/base.html" class="nav-link link-light">インフラ</a></li>
+          <li class="nav-item"><a href="/mk/page/blog/base.html" class="nav-link link-light">ブログ関連</a></li>
           <div style="color: #ffffff; text-align: center;">------------</div>
-          <li class="nav-item"><a href="{{$public_path}}/page/app/base.html" class="nav-link link-light">アプリ</a></li>
-          <li class="nav-item"><a href="{{$public_path}}/page/link/base.html" class="nav-link link-light">リンク集</a></li>
+          <li class="nav-item"><a href="/mk/page/app/base.html" class="nav-link link-light">アプリ</a></li>
+          <li class="nav-item"><a href="/mk/page/link/base.html" class="nav-link link-light">リンク集</a></li>
           <div style="color: #ffffff; text-align: center;">------------</div>
           <li class="nav-item"><a href="https://twitter.com/w_o2z" class="nav-link link-light" target="_blank">X(Twitter)</a></li>
           <li class="nav-item"><a href="https://note.com/w_o2z" class="nav-link link-light" target="_blank">note</a></li>
@@ -131,7 +131,84 @@
       </div>
     </nav>
     <main role="main" class="container-fluid pt-1">
-      @yield('contents')
+      <div><a href="./../../index.html">HOME</a> &gt; Python</div>
+
+<h2>Pyhonとオブジェクト指向設計の相性</h2>
+
+<h3>◆前段</h3>
+<p>
+Pythonってオブジェクト指向設計と相性が良いイメージをしていたが<br>
+実際にコードを書いてみるとそうでもない？って思った点が複数あるのでメモする。<br>
+</p>
+
+<h3>◆ClassのInterfaceについて</h3>
+<p>
+ClassにInterfaceが存在なくて、Method単位で個別にAbstractの指定しかできない。<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+from abc import ABC, abstractclassmethod
+
+class aInterface(ABC):
+    &quot;&quot;&quot;抽象クラス&quot;&quot;&quot;
+
+    @abstractclassmethod
+    def inquiry(self):
+        &quot;&quot;&quot;抽象メソッド&quot;&quot;&quot;
+        pass
+
+class bClass(aInterface):
+    &quot;&quot;&quot;実装クラス&quot;&quot;&quot;
+
+    def inquiry(self):
+        &quot;&quot;&quot;実装メソッド&quot;&quot;&quot;
+</code></pre></div>
+・抽象化したメソッドはサブクラスで実装が必須となる。<br>
+・抽象メソッドと通常メソッドの混在が可能となっている。<br>
+</p>
+
+<h3>◆Classに作ったPrivate変数について</h3>
+<p>
+Classに作ったPrivate変数はサブクラスに継承できない<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+class pClass:
+    def __init__():
+        self.__hensu = 1
+
+class qClass(pClass):
+
+    def p():
+        print(self.__hensu)
+
+if __name__ == &quot;__main__&quot;:
+    q = qClass()
+    q.p()         → self.__hensuが見つからないためエラーになる
+</code></pre></div>
+・Pivate変数(先頭にアンダーバー2つ)はサブクラスに継承されない事に注意が必要。<br>
+</p>
+
+<h3>◆クラスのメンバ変数にクラス型が使えない</h3>
+<p>
+Pythonは変数に型が無いため制約/制限がかけれない（依存性注入に向いてない？）<br>
+
+<div class="bg-dark text-light py-2 ps-3">
+<pre class="mb-0"><code>
+class pInterface:
+    ...
+
+class gClass():
+    def __init__():
+        p_obj = ...  ← pInterface p_obj = ... みたいな記述が存在しない
+</code></pre></div>
+・アノテーションでクラス型を指定できるそうだが違った型を渡してもエラーにならない。あくまでヒントメッセージ。<br>
+</p>
+
+<h3>◆まとめ</h3>
+<p>
+なんだかPythonって、オブジェクト指向設計と相性が良いとは言えない気がしてきた。<br>
+（まだ浅い範囲の知識での事かもしれないのですが・・・）<br>
+</p>
+<br>
+<br>
+<br>
     </main>
   </div>
   <footer>
@@ -139,8 +216,8 @@
   </footer>
 
   <!-- JavaScript  -->
-  <script src="{{$public_path}}/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap-min -->
-  <script src="{{$public_path}}/js/base.js"></script>
+  <script src="/mk/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap-min -->
+  <script src="/mk/js/base.js"></script>
   <script>
   </script>
 
