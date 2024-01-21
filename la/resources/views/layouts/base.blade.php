@@ -123,10 +123,11 @@
           <li class="nav-item"><a href="{{$public_path}}/page/app/base.html" class="nav-link link-light">アプリ</a></li>
           <li class="nav-item"><a href="{{$public_path}}/page/link/base.html" class="nav-link link-light">リンク集</a></li>
           <div style="color: #ffffff; text-align: center;">------------</div>
-          <li class="nav-item"><a href="https://twitter.com/w_o2z" class="nav-link link-light" target="_blank">X(Twitter)</a></li>
-          <li class="nav-item"><a href="https://note.com/w_o2z" class="nav-link link-light" target="_blank">note</a></li>
           <li class="nav-item"><a href="https://zenn.dev/o2z" class="nav-link link-light" target="_blank">Zenn</a></li>
+          <li class="nav-item"><a href="https://note.com/w_o2z" class="nav-link link-light" target="_blank">note</a></li>
           <li class="nav-item"><a href="https://github.com/wotsuji" class="nav-link link-light" target="_blank">github</a></li>
+          <li class="nav-item"><a href="https://connpass.com/user/wataruotsuji/" class="nav-link link-light" target="_blank">connpass</a></li>
+          <li class="nav-item"><a href="https://twitter.com/w_o2z" class="nav-link link-light" target="_blank">X(Twitter)</a></li>
         </ul>
       </div>
     </nav>
