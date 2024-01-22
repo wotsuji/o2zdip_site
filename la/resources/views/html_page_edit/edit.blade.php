@@ -111,8 +111,27 @@
       <div style="text-align: right;width: 990px; margin-top: 10px; margin-bottom: 10px;">
         <input type="submit"></input>
       </div>
+      <div style="width: 990px; margin-bottom: 10px;">
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+・コピペ用
+&lt;div class=&quot;bg-dark text-light py-2 ps-3&quot;&gt;&lt;pre class=&quot;mb-0&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</code></pre></div>
+      </div>
     </form>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
   <!-- JavaScript  -->
   <script src="/la/public/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap-min -->

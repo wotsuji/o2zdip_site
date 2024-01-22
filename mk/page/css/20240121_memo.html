@@ -8,7 +8,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Cache-Control" content="no-cache"> 
   <meta http-equiv="Cache-Control" content="no-store">
-  <title>トップページ - o2zdip</title>
+  <title>よく使うCSSメモ（2024/01/21）</title>
   <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
   <meta name="author" content="otsuji">
   <!-- ビューポート -->
@@ -133,103 +133,184 @@
       </div>
     </nav>
     <main role="main" class="container-fluid pt-1">
-      <div><a href="#">HOME</a> &gt; トップページ</div>
+      <div><a href="./../../index.html">HOME</a> &gt; CSS</div>
 
-<div>
-<h1 class="pt-1">トップページ</h1>
+<h2>よく使うCSSメモ（2024/01/21）</h2>
 
-<h3>■本サイトについて</h3>
-<p>
-個人的なコードのサンプル・メモです。コードサンプル・勉強した事・イベント参加レポート・メモ・etcです。<br>
-発信できるレベルのモノで出来た場合は、技術サイト（Zenn）の記事などにフィードバックしていこうと思います。<br>
-</p>
+<h3>◆前段</h3>
+開発はPHPをメインでやっているのですが、ハマるポイントはフロント側のCSSのカスタマイズ。<br>
+よく使うような項目をメモしました。<br>
 
-<h3>■更新履歴<span style="font-size: 0.75em;"> ※直近 10件</span></h3>
-<p>
-2024年01月21日　【CSS】 <a href='/mk/page/css/20240121_memo.html' target='_blank'>よく使うCSSメモ（2024/01/21）</a><br>
-2024年01月21日　【Python】 <a href='/mk/page/python/20240121_python_obj_orientation.html' target='_blank'>Pyhonとオブジェクト指向設計の相性（2024/01/21）</a><br>
-2024年01月13日　【HTML】 <a href='/mk/page/html/20240113_html_learn.html' target='_blank'>HTML5を学びなおす（2024/01/13）</a><br>
-2024年01月08日　【Python】 <a href='/mk/page/python/20240108_python_Fizz_Buzz.html' target='_blank'>Python Fizz Buzz（2024/01/08）</a><br>
-2024年01月04日　【設計】 <a href='/mk/page/system/20240104_uml.html' target='_blank'>UMLを学びなおす（2024/01/04）</a><br>
-2023年12月31日　【Python】 <a href='/mk/page/python/20231231_python_structure_memo.html' target='_blank'>Python構文メモ（2023/12/31）</a><br>
-2023年11月15日　【インフラ】 <a href='https://note.com/w_o2z/n/na57667c0257e' target='_blank'>AWSネットワーク入門 第2版|クラウドインフラとネットワーク入門（勉強メモ：2023/11/15）</a><br>
-2023年10月28日　【設計】 <a href='https://note.com/w_o2z/n/n98de4646b0be' target='_blank'>良いコード 悪いコードで学ぶ 設計入門（書籍：勉強メモ ：2023/10/27）</a><br>
-2023年10月28日　【設計】 <a href='https://note.com/w_o2z/n/nfd4cf2929463' target='_blank'>リーダブルコード（書籍：勉強メモ ：2023/10/22 note）</a><br>
-2023年10月27日　【設計】 <a href='https://note.com/w_o2z/n/na90f5a838711' target='_blank'>ITエンジニアのための企画力と企画書の勉強メモ：2023年10月8日 note）</a><br>
-
-</p>
-
-<h3>■サイト構成</h3>
-<p>
-管理画面からHTML生成する静的サイトを中心としたサイト（他にPHPのツールなど）<br>
-（ロ-カル環境）PHP+Laravel+Mysql => HTML生成（HTTP保存） →（本番環境）HTMLアップロード<br>
-ローカル環境に管理画面＋HTML生成の機能を実装して、本番環境は生成したHTML＋JS＋CSSを配置する構成にしている。<br>
-<img src="/mk/img/20231225_001.png" alt="構成図" /><br>
-Bootstrap：5.3.0<br>
-JQuery：<br>
-PHP：8.2（フレームワーク Laravel10.x）<br>
-Mysql：8.x<br>
-Docker（環境）<br>
-Google タグマネージャー<br>
-Google アナリティクス（GA4）<br>
+<h3>◆セレクターの指定方法</h3>
+・セレクター<br>
+HTMLタグ<br>
+*<br>
+.クラス名<br>
+#ID<br>
 <br>
-</p>
+・使用例<br>
+HTMLタグ.クラス名<br>
+HTMLタグ#ID<br>
+HTMLタグ[属性名]<br>
+HTMLタグ[属性名=&quot;属性値&quot;]<br>
+セレクター, セレクター<br>
+セレクター セレクター<br>
+セレクター &gt; セレクター<br>
+セレクター + セレクター<br>
 
-<h3>◆本サイトの目的</h3>
+<h3>◆viewport＋medhiaクエリ</h3>
 <p>
-本サイトのサンプル・コード・解説などのコンテンツは自分用をメインとしています。<br>
-サンプル・コードは断りなく自由に利用・改変OKです。但し、正しいかどうかは保証できませんので自己責任にてお願いします。<br>
-ブログ・日記・私見などの記事も存在しますが、こちらは個人的な意見・感想です。所属する組織・チームとは関係ありません。<br>
-</p>
-<p>
-本番環境にCMSは使わず、ローカル環境＋管理システムで生成したHTMLファイル一式をアップロードする構成にしました。<br>
-WordPressは脆弱性対応をちゃんとしないといけないので手がかかるし（放置されている企業サイトが多いけど・・・）<br>
-本番環境をゴリゴリのLAMP（PHP＋Mysql）にすると、それはそれでセキュアコーディングを意識しないといけない。<br>
-（もちろんPHP・MYSQLのバージョン管理やフレームワークのサポート切れ、定期的に更新しないとけない）<br>
-セキュリティリスクを抑えて、なるべく放置できるサイトにしておきたいので<br>
-静的生成したHTMLをアップロードする形で構成しました。（全てのHTMLではなく一部で言語は使ってます。）<br>
-それと静的ページ構成にしとくと無料レンサバの低スペックを気にしなくていいのも大きなメリットです。<br>
-</p>
-
-<h3>■管理者について</h3>
-<p>
-名前：おつじ<br>
-Job：phper/WEB開発/情報システム<br>
-職歴：WEBエンジニア/情シス/設備管理/製本工場/etc<br>
-その他・資格：建築物衛生管理者/第二種電気工事士<br>
-自己紹介：<br>
-色々な仕事をしてきたphperです。LAMP(PHP)環境が得意です。<br>
-他にも製品選定・運用管理・脆弱性対応/セキュリティ対策・IT教育・etc。<br>
-連絡先は用意してないので必要がありましたらSNSのDMなどへ。<br>
-</p>
-
-<h3>■今後の予定</h3>
-<p>
-・データベース更新時に自動的にHTML生成する<br>
-・アップロード画像管理<br>
-・リファクタリング（PSRに沿ったり、SOLID原則を目指して）<br>
-・自動デプロイ（CD）※Github<br>
-・自動テスト（CI）<br>
-</p>
-<p>
-・メモ<br>
-headにキャッシュしない設定を入れてもChromeはキャッシュしてくるみたい。<br>
-ブラウザにキャッシュをさせない方法について確認。<br>
-補足：HTML5になってHTMLヘッダの「Pragma」「Cache-Control」「Expires」の指定は無くなったとのこと。<br>
-HTTPレスポンスヘッダで制御する事は可能な模様。<br>
-.htaccess（仮運用中：2024/01/21～）
+・viewportを使うにはheadにmetaタグ追加が必要<br>
 <div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
-&lt;Files ~ &quot;.(html|jpeg|jpg|png|gif|js|css)$&quot;&gt;
-  Header set Cache-Control &quot;no-cache&quot;
-&lt;/Files&gt;
+&lt;meta name=”viewport” content=”width=device-width,initial-scale=1″&gt;
+
+</code></pre></div>
+「width=device-width」表示領域の幅を指定するという意味<br>
+「initial-scale=1」初期ズーム倍率（1を指定しておくと初期表示が安定する）<br>
+<br>
+・メディアクエリ<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+@media screen and (min-width: 420px) {
+    /* 420px - */
+    .bg-g { /* class指定の場合 */
+        background-color:#a1a1a1;
+    }
+}
+
+</code></pre></div>
+<br>
+・横幅の指定（後の記述で上書きしていく）<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+min-width: 0px;      # 0-420
+min-width: 420px;  # 420-700
+min-width: 700px; # 700-900
+min-width: 900px; # 900-1200
+min-width: 1200px; # 1200-
+
+min-width ○pxから適用させる
+max-width 最高○pxまで適用させる
 
 </code></pre></div>
 </p>
 
-<br>
-<br>
+<h3>◆position</h3>
+<p>
+position: relative; は現在位置を基準に、相対位置を指定する。position: absolute; とセットで各要素に使う。<br>
+positionプロパティは「top」「right」「bottom」「left」の4つのプロパティと合わせて要素の配置を指定する。<br>
+</p>
 
-</div>
+<h3>◆スクロールに要素を追随させる（ヘッダなどで使う）</h3>
+<p>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+.some-component{
+    position: sticky;
+    top: 0;
+} 
+.main-footer{     
+     position: sticky; 
+     bottom: 0;
+}
+
+</code></pre></div>
+</p>
+
+<h3>◆display</h3>
+<p>
+    block⇒要素が横までいっぱいに広がり、縦に並んでいく<br>
+    inline⇒要素が平ぺったく横に並んでいく<br>
+    inline-block⇒blockとinlineの中間（高さ・上下マージン/パディングを指定できる）<br>
+    none⇒非表示になる<br>
+</p>
+
+<h3>◆ビューポートの％指定</h3>
+<p>
+VW（ビューポートからの横幅パーセント）<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+width 100VW; /* 親要素の影響を受けない */
+width 100%; /* 親要素に影響を受ける */
+
+</code></pre></div>
+</p
+
+<h3>◆奇数番目</h3>
+<p>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+li:nth-child(3) 3つ目
+li:nth-child(2n) 2の倍数
+li:nth-child(3n+1) 3の倍数を1つずらして、1,4,7,10
+
+</code></pre></div>
+</p>
+
+<h3>◆ページ内herfでスルスル動くスクロール（下記を加えるだけ）</h3>
+<p>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+html {
+    scroll-behavior: smooth;
+}
+
+</code></pre></div>
+</p>
+
+<h3>◆カスタムプロパティ</h3>
+<p>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+:root {  /* 疑似要素：rootはhtmlタグと同位と考えていい */
+    --main-color: #4dblec; /* CSS変数を宣言する */
+}
+a {
+    color: var(--main-color); /* var()を使ってCSS変数を使用する */
+}
+
+</code></pre></div>
+</p>
+
+<h3>◆トランジション（:hoverと通常時のbackgroundをゆっくり変化させる）</h3>
+<p>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+.transition-1s {
+    transition: background 1s; # 1秒かけて変化させる
+}
+.transition-1s { # 全部の変化
+    transition: 1s; # 1秒かけて変化させる
+}
+
+</code></pre></div>
+</p>
+
+<h3>◆CSSのクラスを付けたりはずしたりできる toggle（JS）</h3>
+<p>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+this.classList.toggle(&#39;radius&#39;);
+width 0;
+width 100%; /* 親要素に影響を受ける */
+
+</code></pre></div>
+</p>
+
+<h3>◆scale関数で要素を拡大する</h3>
+<p>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+/* itemにマウスを重ねた時 */
+.item:hover {
+    filter: grayscale(0);    /* グレースケール*/
+    transform: scale(1.1); /* 大きさの変更 */
+    z-index: 3;
+    position: relative;
+}
+
+</code></pre></div>
+</p>
+
+<h3>◆最後に</h3>
+<p>
+一旦、ここまでとします。<br>
+「疑似要素」「liマーカー変更」「viewport」「object-fit」「flex」なども確認する必要あり。<br>
+今度は人に教える用の教材としてまとめなおしたい。<br>
+</p>
+<br>
+<br>
+<br>
     </main>
   </div>
   <footer>
