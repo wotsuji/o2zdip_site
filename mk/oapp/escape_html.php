@@ -22,7 +22,11 @@ if (isset($_POST['chg_text'])) {
 <html lang='ja'>
 
 <head>
-	<meta charset='utf-8' />
+	<meta charset="utf-8">
+	<meta http-equiv="content-language" content="ja">
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
 	<title>HTMLエスケープ 変換フォーム</title>
 </head>
 

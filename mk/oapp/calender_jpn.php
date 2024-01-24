@@ -30,6 +30,11 @@ for ($y = $now_y; $y >= 1960; $y--) {
 <html>
 
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="content-language" content="ja">
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
 </head>
 
 <body>
