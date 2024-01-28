@@ -8,7 +8,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Cache-Control" content="no-cache">
   <meta http-equiv="Cache-Control" content="no-store">
-  <title>ブログ・日記サブページ</title>
+  <title>vs_code キーボードショートカット これだけ覚えておけばOK(2024/01/28)</title>
   <meta name="description" itemprop="description" content="個人的なコードのサンプル・メモ集です。">
   <meta name="author" content="otsuji">
   <!-- ビューポート -->
@@ -112,18 +112,58 @@
     </nav>
     <main role="main" class="container-fluid pt-1">
       <div><a href="./../../index.html">HOME</a> &gt; ブログ・日記</div>
-<div>
-<h1 class="pt-1">ブログ・日記</h1>
-<p class="lead"></p>
 
-<h5>■ページ一覧</h5>
-
-<p class="mt-1 mb-1">
-<a href="/mk/page/blog/20240128_vscode.html" target="_blank">vs_code キーボードショートカット これだけ覚えておけばOK(2024/01/28)</a><br>
-自分がよく使うショートカットのみ<br>
+<h2>vs_code キーボードショートカット これだけ覚えておけばOK</h2>
+<p>
+vs_code歴 8年（2015年の出始めから使っている）けど（使いこなせてない？）<br>
+慣れてない人に対してはvs_codeはショートカット多すぎ問題があると思っている。<br>
+ショートカットは存在だけ知っておいて、よく使うショートカットだけ覚えておけばいいのかなと思うので、自分がよく使うショートカットのみを抽出した。<br>
+※必要になったらその時に調べて覚えればいいという姿勢で<br>
 </p>
 
-</div>
+<h3>◆vs_code よく使うショートカット</h3>
+<p>
+コメントアウトの切替：	Ctrl+/<br>
+ブロックコメントの挿入：	Shift+Alt+A<br>
+<br>
+矩形選択：	Shift+Alt+マウスドラッグ<br>
+矩形選択：	Ctrl+Shift+Alt+矢印<br>
+<br>
+コードをフォーマット：	Shift+Alt+F<br>
+コマンドパレット：	Ctrl＋Shift＋Pキー<br>
+<br>
+Ctrl+W：	タブを閉じる<br>
+Ctrl+Shift+T：	閉じたタブをもう一度開く<br>
+<br>
+右クリック：	すべての出現箇所を変更<br>
+<br>
+</p>
+<h5>・ショートカット設定の追加について</h5>
+<p>
+小文字に変換（追加設定）：	Ctrl＋Uキー<br>
+大文字に変換（追加設定）：	Ctrl＋Shift＋Uキー<br>
+プログラム起動 （追加設定）：	Ctrl＋Enter（Python）<br>
+<br>
+<div class="bg-dark text-light py-2 ps-3">
+<pre class="mb-0"><code>
+{
+  &quot;key&quot;: &quot;ctrl+u&quot;,
+  &quot;command&quot;: &quot;editor.action.transformToLowercase&quot;,
+  &quot;when&quot;: &quot;editorHasSelection &amp;&amp; editorTextFocus&quot;
+},
+{
+  &quot;key&quot;: &quot;ctrl+shift+u&quot;,
+  &quot;command&quot;: &quot;editor.action.transformToUppercase&quot;,
+  &quot;when&quot;: &quot;editorHasSelection &amp;&amp; editorTextFocus&quot;
+},
+{
+    &quot;key&quot;: &quot;ctrl+enter&quot;,
+    &quot;command&quot;: &quot;python.execInTerminal&quot;,
+    &quot;when&quot;: &quot;editorTextFocus &amp;&amp; !findInputFocussed &amp;&amp; !replaceInputFocussed &amp;&amp; editorLangId == &#39;python&#39;&quot;
+},
+
+</code></pre></div>
+</p>
 <br>
 <br>
 <br>
