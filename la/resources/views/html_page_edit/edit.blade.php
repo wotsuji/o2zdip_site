@@ -115,7 +115,7 @@
 <div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
 ・コピペ用
 &lt;div class=&quot;bg-dark text-light py-2 ps-3&quot;&gt;&lt;pre class=&quot;mb-0&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </code></pre></div>
       </div>

@@ -136,7 +136,7 @@ CASE [カラム名]
     WHEN IN ( 3','4') THEN 'C'
     ELSE 'D'
 END
-</code></pre></div>
+<br></code></pre></div>
 <br>
 テーブルにカラムが用意されていない構造で一時的に変換を行うならSQLでCASE式を使うのはアリよりのアリ。<br>
 ELSE句が無いとWHEN句でマッチしなかった場合はNULLとみなされるので注意。特にUPDATEでCASE句を使う場合。<br>
@@ -151,6 +151,43 @@ ELSE句が無いとWHEN句でマッチしなかった場合はNULLとみなさ�
 同じテーブルを結合する。<br>
 異なるテーブルを結合してるイメージで結合していい。<br>
 </p>
+
+<h3>◆「= NULL」ではなく「IS NULL」と書かないといけない</h3>
+<p>
+　NULLは比較できない（値でも変数でもない）<br>
+　NULLは「値が無い」という文脈でしかない<br>
+　空文字とNULLは違うが空文字をNULLとして扱うDBMSがある（ORACLEなど？）<br>
+　ORDER BY句の並び順もDBMSによって違いがある<br>
+</p>
+
+<h3>◆値にNULLを含む場合の注意</h3>
+<p>
+membger_bのageにnullを含むデータがあった場合に動きが変わるので注意。<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+　SELECT name,age
+　FROM member_a
+　WHERE age IN (SELECT age FROM member_b)
+<br></code></pre></div>
+　下記のようにIN句にNULLが含まれるケースになる<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+　WHERE age IN ('20','22',NULL)
+<br></code></pre></div>
+</p>
+
+<h3>◆EXISTS句</h3>
+<p>
+　EXISTSは必ずサブクエリを使う<br>
+　サブクエリの結果、レコードが存在した場合は「TRUE」、そうでない場合は「FALSE」を返す<br>
+　JOINはテーブル結合を返すが、EXISTSはテーブル単体を返すため、JOINより早く動作する。<br>
+　NOT EXISTS で結合先が存在しないレコードも返せる<br>
+<div class="bg-dark text-light py-2 ps-3"><pre class="mb-0"><code>
+SELECT * FROM member
+WHERE EXISTS (SELECT * FROM book  WHERE member.id = book.member_id)
+<br></code></pre></div>
+</p>
+
+<hr>
+<b>作成中</b>
 
 <br>
 <br>
